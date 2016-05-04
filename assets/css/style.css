@@ -267,6 +267,66 @@ textarea {
 *     $FOOTER          *
 *********************************/
 
+.footer ul {
+  list-style: none;
+}
+
+.footer {
+  padding-bottom: 2em;
+  padding-top: 2em;
+  background-color: #83D2E5;
+}
+
+.followList li {
+  display: inline;
+}
+
+.fa-facebook-square:hover {
+  color: #3B5998;
+}
+
+.fa-twitter-square:hover {
+  color: #55acee;
+}
+
+.fa-linkedin-square:hover {
+  color: #0077b5; 
+}
+
+.fa-google-plus-square:hover {
+  color: #dc4e41; 
+}
+
+.footer div {
+  width: 33%;
+  text-align: center;
+  margin: 0;
+  display: inline-block;
+}
+
+.aboutUs, .quickSearch {
+  float: right;
+}
+
+.aboutUs li, .quickSearch li {
+  margin-left: 3em;
+  text-align: left;
+}
+
+.footer h2 {
+  margin: 0;
+}
+
+.fa:hover {
+  cursor: pointer;
+}
+
+.fa {
+  color: #fff;
+  margin: 7px 7px;
+  font-size: 3em;
+}
+
 /*********************************
 *       $BTN       *
 *********************************/
