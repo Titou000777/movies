@@ -1,4 +1,5 @@
-********************************
+/********************************
+>>>>>>> origin/master
 *     SOMMAIRE             *
 * INIT               *
 * RESET              *
@@ -7,6 +8,8 @@
 * CONTENT              *
 * FOOTER             *
 * BTN                *
+* LINK               *
+* ICONS FA           *
 * PANEL              *
 * FORM               *
 * UTILS              *
@@ -17,7 +20,11 @@
 * orange: #F15C22                *
 * marine: #002D56                *
 * text: #424242                  *
-* blanc: #fff                    *
+* blanc: #fff 
+*gris :#90999D                   *
+*facebook :<i class="fa fa-facebook-square" aria-hidden="true"></i>                  *
+*<i class="fa fa-twitter-square" aria-hidden="true"></i>                  *
+*google + :<i class="fa fa-google-plus-square" aria-hidden="true"></i>                  *
 *********************************/
 /*********************************
 *               $RESET           *
@@ -26,10 +33,18 @@ html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
-  margin: 0;
+  margin: -15px 0 0 0 ;
+  font-size:16px;
+  font-family: 'Roboto Slab', serif;
+  background-color: #f1f1f1;
 }
 
 article,
@@ -77,7 +92,6 @@ a:active,
 a:hover {
   outline-width: 0;
 }
-
 
 abbr[title] {
   border-bottom: none; /* 1 */
@@ -133,7 +147,6 @@ img {
   border-style: none;
 }
 
-
 svg:not(:root) {
   overflow: hidden;
 }
@@ -155,7 +168,6 @@ hr {
   height: 0; /* 1 */
   overflow: visible; /* 2 */
 }
-
 
 button,
 input,
@@ -265,7 +277,6 @@ textarea {
 *********************************/
 .header {
     background-color: #fff;
-    /*width: 100%;*/
     height: 70px;
     line-height: 70px;
     border-bottom: solid 2px #002D56;
@@ -327,7 +338,31 @@ textarea {
 /*********************************
 *     $CONTENT                   *
 *********************************/
+h1{
+  color: #002D56;
+  text-transform: uppercase;
+  margin-top:0.5em;
+  margin-bottom: 1em;
+  padding-bottom: 0.25em;
+  display: block;
+  font-weight:700;
+}
 
+h2{
+  color:#90999D;
+  font-weight: 400;
+}
+
+p{
+  font-weight: 350;
+  text-align: justify;
+}
+
+.wrapper {
+  margin: 0 1em;
+  padding: 1.5em;
+  background-color: #fff;
+}
 /*********************************
 *     $FOOTER                    *
 *********************************/
@@ -395,7 +430,90 @@ textarea {
 /*********************************
 *       $BTN                     *
 *********************************/
+.btn{
+  background-color: #F15C22;
+  color:#fff;
+  text-decoration: none;
+  padding: .6em .8em;
+  border-radius: 6px;
+  border:1px solid #fff;
+}
 
+.btn:hover{
+  background-color: #fff;
+  color:#F15C22;
+  border:1px solid #F15C22;
+}
+/*********************************
+*       $LINK     *
+*********************************/
+
+/*un lien qui ressemble à un bouton background orange*/
+.link-btn{
+  background-color: #F15C22;
+  color:#fff;
+  text-decoration: none;
+  padding: .6em .8em;
+  border-radius: 6px;
+  border:1px solid #fff;
+}
+
+.link-btn:hover{
+  background-color: #fff;
+  color:#F15C22;
+  border:1px solid #F15C22;
+}
+/*lien stylisé comme un bouton background bleu*/
+.link-btn-bis{
+  background-color:#002D56;
+  color:#fff;
+  text-decoration: none;
+  padding: .6em .8em;
+  border-radius: 6px;
+  border:1px solid #002D56;
+}
+
+.link-btn-bis:hover{
+  background-color:#83D2E5 ;
+  color:#fff;
+  border:1px solid #83D2E5 ;
+}
+
+/*pour styliser les titres qui sont des link*/
+.link-title{
+  color:#90999D;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.link-title:hover{
+  text-decoration: underline;
+}
+/*********************************
+*       $ICONS FA     *
+*********************************/
+
+/*ICONES RESEAUX SOCIAUX HORS FOOTER*/
+.fa-social{
+  font-size: 2.5em;
+  color: #83D2E5;
+}
+
+.fa-social:hover{
+ color: #002D56;
+}
+
+.fa-social.fa-facebook-square:hover{
+ color: #3b5999;
+}
+
+.fa-social.fa-twitter-square:hover{
+ color: #55acee;
+}
+
+.fa-social.fa-google-plus-square:hover{
+ color: #DC4E41;
+}
 /*********************************
 *     $PANEL                     *
 *********************************/
@@ -403,6 +521,70 @@ textarea {
 /*********************************
 *      $FORM                     *
 *********************************/
+
+/*BASIC FORM : classe à metttre sur balise form*/
+.basic-form{
+    width: 70%;
+    position: relative;
+    left: 15%;
+    background-color: #90999D;
+    padding:1em;
+}
+.basic-form label{
+  display:block;
+  padding-bottom: 0.15em;
+}
+
+/*la legende c'est le titre du FORM*/
+.basic-form legend{
+  font-size:1.25em;
+  text-align: center;
+  text-transform: uppercase; 
+  display: block;
+  width: 100%; 
+}
+
+.basic-form input{
+  display: block;
+  width:100%;
+  margin-bottom: 1em;
+}
+.basic-form input[type="checkbox"]{
+  display: inline;
+  width:1em;
+  margin-right: 1em;
+  text-align: center;
+}
+
+.basic-form .checkboxDiv{
+  text-align: center;
+  padding: 0 0.25em;
+}
+.basic-form .checkbox{
+  display:inline;
+}
+
+.basic-form input[type="submit"]{
+  display: block;
+  width:20%;
+  text-align: center;
+  margin:0 auto;
+  margin-top: 0.5em;
+  background-color: #fff;
+  border:2px solid #F15C22;
+  color:#F15C22;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.basic-form input[type="submit"]:hover{
+ 
+  background-color: #F15C22;
+  border:2px solid #F15C22;
+  color:black;
+  font-weight: 400;
+}
+
 
 /*********************************
 *       $UTILS                   *
@@ -418,3 +600,4 @@ textarea {
 .hide {
   display: none;
 }
+
