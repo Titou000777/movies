@@ -86,6 +86,7 @@ template, /* 1 */
 a {
   background-color: transparent; /* 1 */
   -webkit-text-decoration-skip: objects; /* 2 */
+    text-decoration: none;
 }
 
 a:active,
@@ -279,7 +280,7 @@ textarea {
     background-color: #fff;
     height: 70px;
     line-height: 70px;
-    border-bottom: solid 2px #002D56;
+    border-bottom: solid 1px #002D56;
     margin: 0;
     padding: 0 1em;
 }
@@ -334,12 +335,15 @@ textarea {
 /*********************************
 *       $NAV                     *
 *********************************/
-.header-nav {
-    list-style: none;
-}
-
 .header-nav li {
     float:left;
+    list-style: none;
+    padding: 0 1em;
+}
+
+.header-nav li a {
+    color: #002D56;
+    font-weight: bold;
 }
 
 /*********************************
@@ -451,9 +455,6 @@ p{
   color:#F15C22;
   border:1px solid #F15C22;
 }
-/*********************************
-*       $LINK     *
-*********************************/
 
 /*un lien qui ressemble à un bouton background orange*/
 .link-btn{
@@ -470,6 +471,7 @@ p{
   color:#F15C22;
   border:1px solid #F15C22;
 }
+
 /*lien stylisé comme un bouton background bleu*/
 .link-btn-bis{
   background-color:#002D56;
@@ -486,6 +488,22 @@ p{
   border:1px solid #83D2E5 ;
 }
 
+/*lien stylisé comme un bouton background bleu*/
+.link-btn-ter{
+  background-color:#83D2E5;
+  color:#fff;
+  text-decoration: none;
+  padding: .6em .8em;
+  border-radius: 6px;
+  border:1px solid #83D2E5;
+}
+
+.link-btn-ter:hover{
+  background-color:#002D56 ;
+  color:#fff;
+  border:1px solid #002D56 ;
+}
+
 /*pour styliser les titres qui sont des link*/
 .link-title{
   color:#90999D;
@@ -495,6 +513,14 @@ p{
 
 .link-title:hover{
   text-decoration: underline;
+}
+
+.btn-block {
+    width: 100%;
+    color: #002D56;
+    background-color: #83D2E5;
+    padding: 1em 0;
+    text-align: center;
 }
 /*********************************
 *       $ICONS FA     *
@@ -524,6 +550,13 @@ p{
 /*********************************
 *     $PANEL                     *
 *********************************/
+.card {
+    background-color: #f1f1f1;
+    padding: 1em;
+    float: left;
+    width: 22%;
+    height: auto;
+}
 
 /*********************************
 *      $FORM                     *

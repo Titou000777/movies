@@ -31,7 +31,7 @@
             </ul>
         </nav>
         <div class="right">
-            <a href="./user/sign.php#login" class="link-btn-bis">Connexion</a>
+            <a href="./user/sign.php#login" class="link-btn-ter">Connexion</a>
             <a href="./user/sign.php#signup" class="link-btn-bis">Inscription</a>
         </div>
         <div class="clearfix"></div>
