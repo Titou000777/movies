@@ -173,9 +173,9 @@
 	function getImg($img, $title) {
 		if(file_exists('./posters/'.$img.'.jpg')) 
 		{
-			 echo '<img src="posters/'.$img.'.jpg" alt="'.$title.'"/>';
+			 echo '<img src="posters/'.$img.'.jpg" alt="'.$title.'" class="image-size" />';
 		}
 		else { 
-			echo'<img src="posters/avatar.jpg" alt="'.$title.'"/>';
+			echo'<img src="posters/avatar.jpg" alt="'.$title.'" class="image-size" />';
 		}
 	}

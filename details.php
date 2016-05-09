@@ -26,7 +26,7 @@
 		<h3>Résumé</h3>
 		<p><?= $detail['plot'] ?></p>
 
-		<ul>
+		<ul id="movie-liste">
 			<li>Réalisateur : <?= $detail['directors'] ?></li>
 			<li>Acteurs : <?= $detail['cast'] ?></li>
 			<li>Scénario : <?= $detail['writers'] ?></li>
@@ -39,7 +39,6 @@
 			<input type="submit" name="rating" value="voter" />
 
 			<ul id="movie-partage">
-				<!-- <p>Partager</p> -->
 				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
