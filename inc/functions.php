@@ -3,22 +3,6 @@
 	/*----------------------------------------------
 	----------------FONCTIONS BDD-------------------
 	----------------------------------------------*/
-	/**
-	 *  Connexion BDD :
-	 */
-	function connectBDD(){
-		//global $pdo;
-		try{
-			$pdo = new PDO ('mysql:host=localhost;dbname=movies',"root","", array(
-				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
-		        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-		        PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
-		    ));
-		}
-		catch (PDOException $e) {
-		    echo 'Erreur de connexion : ' . $e->getMessage();
-		}	 
-	}
 
 	/**
 	 * Chercher infos en BDD
@@ -30,11 +14,11 @@
 	 */
 	function getBy($tableName, $element, $where, $selector){
 		global $pdo;
-		$sql="SELECT $selector FROM $tableName WHERE $where=:element";
-		$stmt=$pdo->prepare($sql);
+		$sql = "SELECT $selector FROM $tableName WHERE $where = :element";
+		$stmt = $pdo->prepare($sql);
 		$stmt->bindValue(':element', $element, PDO::PARAM_STR);
 		$stmt->execute();
-		$result=$stmt->fetchAll();
+		$result = $stmt->fetchAll();
 		return $result;
 	}
 
@@ -47,10 +31,10 @@
 	*/
 	function getAll($tableName, $selector){
 		global $pdo;
-		$sql="SELECT $selector FROM $tableName";
-		$stmt=$pdo->prepare($sql);
+		$sql = "SELECT $selector FROM $tableName";
+		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
-		$result=$stmt->fetchAll();
+		$result = $stmt->fetchAll();
 		return $result;
 	}
 
@@ -59,10 +43,10 @@
 	 */
 	function getRandomly($tableName, $selector, $limit){
 		global $pdo;
-		$sql="SELECT $selector FROM $tableName ORDER BY RAND() LIMIT $limit";
-		$stmt=$pdo->prepare($sql);
+		$sql = 'SELECT * FROM '.$tableName.' ORDER BY RAND() LIMIT '.$limit;
+		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
-		$result=$stmt->fetchAll();
+		$result = $stmt->fetchAll();
 		return $result;
 	}
 
@@ -184,4 +168,14 @@
 		}
 		echo '<li><a href="./dashboard.php?page='.$nbPage.'">&nbsp; ❯; &nbsp; ❯;</a></li>';
 		echo '</ul>';
+	}
+
+	function getImg($img, $title) {
+		if(file_exists('./posters/'.$img.'.jpg')) 
+		{
+			 echo '<img src="posters/'.$img.'.jpg" alt="'.$title.'"/>';
+		}
+		else { 
+			echo'<img src="posters/avatar.jpg" alt="'.$title.'"/>';
+		}
 	}
