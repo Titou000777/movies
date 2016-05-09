@@ -374,6 +374,43 @@ p{
   padding: 1.5em;
   background-color: #fff;
 }
+
+
+/*********************************
+*     $DETAILS                    *
+*********************************/
+
+#image-content {
+  float: left;
+  width: 15%;
+}
+
+#movie-resume {
+  margin-right: 300px;
+  margin-left: 40px;
+ 
+}
+
+ ul#movie-partage {
+  margin-left: 1000px;
+  margin-top: -50px;
+
+}
+
+#movie-partage li {
+  display: inline; 
+  font-size: 3em;
+}
+
+#movie-partage li a {
+  margin-left: 20px;
+}
+
+.position {
+  margin-right: 10px;
+}
+
+
 /*********************************
 *     $FOOTER                    *
 *********************************/
