@@ -17,16 +17,17 @@
 				<div class="card-content">	
 					<?php getImg($movie['id'], $movie['title']); ?>
 				</div>
+
 				<div class="card-footer">
 					<a href="./details.php?id=<?= $movie['id'] ?>&slug=<?= $movie['slug'] ?>" class="link-title"><?= $movie['title'] ?></a>
-				</div>
+				</div> 
 			</div>
 	<?php 
 			endforeach;
 		endif; 
 	?>
 			<div class="clearfix"></div>
-	<a href="./index.php" class="btn-block">Plus de film</a>
+	<a href="./index.php" class="btn-block">Plus de films</a>
 </section>
 
 <?php include ('inc/footer.php'); ?>
