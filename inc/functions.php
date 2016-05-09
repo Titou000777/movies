@@ -29,9 +29,14 @@
 	* @PARAM : $whereValue = la colonne en BDD dans laquelle je cherche $element 
 	* @PARAM : le nom de la table
 	*/
-	function getAll($tableName, $selector){
+	function getAll($tableName, $selector, $where = null){
 		global $pdo;
-		$sql = "SELECT $selector FROM $tableName";
+		if($where) {
+			$sql = "SELECT $selector FROM $tableName $where";
+		}
+		else {
+			$sql = "SELECT $selector FROM $tableName";
+		}
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
@@ -50,21 +55,67 @@
 		return $result;
 	}
 
+	/**
+	* POUR TOUT RECUPERER
+	* @PARAM : $selector = la ligne que je veux sélectionner en BDD (id...)
+	* @PARAM : $element=  la variable que je veux chercher
+	* @PARAM : $whereValue = la colonne en BDD dans laquelle je cherche $element 
+	* @PARAM : le nom de la table
+	*/
+	function search($tableName, $selector, $limit, $search, $from, $to, $genre)
+	{
+		global $pdo;
+		$where = 'WHERE 1 = 1';
+		if(!empty($search))
+		{
+			$where .= ' AND title LIKE "%'.$search.'%"';
+		}
+
+		if(!empty($genre))
+		{
+			$where .= ' AND genres = "'.$genre[0].'"';
+			for($i = 1; $i < count($genre); $i++)
+			{
+				$where .= ' OR genres = "'.$genre[$i].'"';
+			}
+		}
+
+
+		if(!empty($from) && !empty($to))
+		{
+			$where .= ' AND year BETWEEN '.$from.' AND '.$to.'';
+		}
+		else if(!empty($from) && empty($to))
+		{
+			$where .= ' AND year >= '.$from.'';
+		}
+		else if(!empty($to) && empty($from))
+		{
+			$where .= ' AND year <= '.$to.'';
+		}
+	
+		$sql = "SELECT $selector FROM `$tableName` $where ORDER BY RAND() LIMIT $limit";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		return $result;
+	}
+
 	//2.4 POUR RECUPERER DE MANIERE ALEATOIRE AVEC DES WHERE avec les checkbox
 		// il faudrait une fonction a part pour la recherche textuelle
-	// function getRandomlyBy($tableName, $selector, $genre, $cast, $popularity){
-		
-	// 	global $pdo;
-	// 	//initialisation des string du WHERE
-	// 	$genreString='';
-	// 	$castString='';
-	// 	$popularityString='';
-		
-	// 	if(!empty($genre)){
-	// 		//dans le cas ou une seule checkbox de genre est cochée, j'ai un arret avec juste l'idex
+	//function getRandomlyBy($tableName, $selector, $genre, $cast, $popularity){
+	//	
+	//	global $pdo;
+	//	//initialisation des string du WHERE
+	//	$genreString='';
+	//	$castString='';
+	//	$popularityString='';
+	//	
+	//	if(!empty($genre)){
+	//		//dans le cas ou une seule checkbox de genre est cochée, j'ai un //arret avec juste l'idex
 	// 		$genreString=$genre[0]
 	// 	}
-
+//
 	// 	$sql="SELECT $selector FROM $tableName WHERE ";
 	// 	$stmt=$pdo->prepare($sql);
 	// 	$stmt->execute();
