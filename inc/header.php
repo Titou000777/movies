@@ -22,6 +22,9 @@
                 <label for="cat">
                     <input type="checkbox" name="cat" id="cat"> Catégorie du film
                 </label>
+                <label for="cat">
+                    <input type="checkbox" name="cat" id="cat"> Catégorie du film
+                </label>
             </div>
         </form>
         <nav class="header-nav">
