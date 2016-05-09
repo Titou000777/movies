@@ -1,27 +1,37 @@
+<?php 
+ 	include_once('inc/db.php');
+ 	include('inc/functions.php');
+ 	
+ 	if (!empty($_GET['id']) && is_numeric($_GET['id']) && !empty($_GET['slug'])) {
+ 		$id = trim(strip_tags($_GET['id']));
+ 		$slug = trim(strip_tags($_GET['slug']));
+ 		$details = getBy('movies_full', $_GET['id'], 'id', '*');
+ 	}
+?>
+
 <?php include('inc/header.php'); ?>
 
-
+<?php 
+	if(!empty($details)): 
+		foreach ($details as $detail):
+?>
 
 <section class="wrapper">
 	<section id="image-content">
-		<img src="posters/10002.jpg" alt="poster" class="">
+		<?php getImg($detail['id'], $detail['title']); ?>
 	</section>
 
 	<section id="movie-resume">
-		<h2>Titre du film</h2>
+		<h2><?= $detail['title'] ?></h2>
 		<h3>Résumé</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p><?= $detail['plot'] ?></p>
 
 		<ul>
-			<li>Réalisateur : </li>
-			<li>Acteurs : </li>
-			<li>Année : </li>
-			<li>Popularité : </li>
+			<li>Réalisateur : <?= $detail['directors'] ?></li>
+			<li>Acteurs : <?= $detail['cast'] ?></li>
+			<li>Scénario : <?= $detail['writers'] ?></li>
+			<li>Année : <?= $detail['year'] ?></li>
+			<li>Popularité : <?= $detail['popularity'] ?></li>
 		</ul>
 
 		<section>
@@ -38,13 +48,13 @@
 		</section>
 	</section>
 </section>
+<?php 
+		endforeach;
+	else:
+		echo 'Aucun film trouvé : <a href="index.php">retour a l\'acceuil</a>.';
+	endif; 
+?>
 
 <div class="clearfix"></div>
-
-
-
-
-
-
 
 <?php include('inc/footer.php'); ?>
