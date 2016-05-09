@@ -1,24 +1,53 @@
-<?php include('inc/header.php'); ?>
+<?php 
+
+include('inc/functions.php');
+
+try{
+	$pdo = new PDO ('mysql:host=localhost;dbname=movies',"root","", array(
+		PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
+    ));
+}
+catch (PDOException $e) {
+    echo 'Erreur de connexion : ' . $e->getMessage();
+}	
+
+if (!empty($_GET['id']) && is_numeric($_GET['id']) && !empty($_GET['slug'])) {
+
+	$id = trim(strip_tags($_GET['id']));
+	$slug = trim(strip_tags($_GET['slug']));
+
+	$detail = getBy('movies_full', $_GET['id'], 'id', '*');
+
+}
+
+if (empty($detail)) {
+	die('aucun film trouvé : <a href="index.php">retour a l\'acceuil</a>');
+}
+
+debug($detail);
+
+include('inc/header.php'); 
+
+
+?>
 
 <section>
 	<img src="posters/10002.jpg" alt="poster" class="">
 </section>
 
 <section>
-	<h2>Titre du film</h2>
+	<h2><?php if (!empty($detail[0]['title'])) echo $detail[0]['title'] ?></h2>
 	<h3>Résumé</h3>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<p><?php if (!empty($detail[0]['plot'])) echo $detail[0]['plot'] ?></p>
 
 	<ul id="">
-		<li>Réalisateur : </li>
-		<li>Acteurs : </li>
-		<li>Année : </li>
-		<li>Popularité : </li>
+		<li>Réalisateur : <?php if (!empty($detail[0]['directors'])) echo $detail[0]['directors'] ?></li>
+		<li>Acteurs : <?php if (!empty($detail[0]['cast'])) echo $detail[0]['cast'] ?></li>
+		<li>Scénario : <?php if (!empty($detail[0]['writers'])) echo $detail[0]['writers'] ?></li>
+		<li>Année : <?php if (!empty($detail[0]['year'])) echo $detail[0]['year'] ?></li>
+		<li>Popularité : <?php if (!empty($detail[0]['popularity'])) echo $detail[0]['popularity'] ?></li>
 	</ul>
 
 	<section>

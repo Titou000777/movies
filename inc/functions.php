@@ -32,7 +32,7 @@
 		global $pdo;
 		$sql="SELECT $selector FROM $tableName WHERE $where=:element";
 		$stmt=$pdo->prepare($sql);
-		$stmt->bindValue(':element', $element, PDO::PARAM_STR);
+		$stmt->bindValue(':element', $element, PDO::PARAM_INT);
 		$stmt->execute();
 		$result=$stmt->fetchAll();
 		return $result;
