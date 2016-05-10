@@ -1,4 +1,7 @@
 <?php 
+	// On démare la session :
+    session_start();
+    
  	include_once('inc/db.php');
  	include('inc/functions.php');
  	
