@@ -40,7 +40,7 @@
  			setcookie('tosee', $_COOKIE['tosee'].'+'.$id, time() + 365*24*3600);
  		}
 
- 		header('Location: http://localhost/movies/movies/user/dashboard.php?cat=tosee');
+ 		header('Location: http://localhost/backend/movies/user/dashboard.php?cat=tosee');
  	}
 
 $tosee = explode('+', $_COOKIE['tosee']);
@@ -88,18 +88,11 @@ foreach ($tosee as $i) {
 			</form>
 
 			<ul id="movie-partage">
-<<<<<<< HEAD
 				<!-- <p>Partager</p> -->
 				    <li><div class="fb-share-button" data-layout="button" data-mobile-iframe="true"></div></li>
 					<li><a class="twitter-share-button" href="https://twitter.com/share" target="_blank"></a></li>
 					<li><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script><script type="IN/Share"></script></li>
 					<li><div class="g-plus" data-action="share" data-annotation="none" data-href="http://localhost/movies/movies/index.php"></div></li>
-=======
-				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
->>>>>>> refs/remotes/origin/master
 			</ul>
 		</section>
 	</section>
