@@ -95,8 +95,8 @@
         </form>
         <nav class="header-nav">
             <ul>
-                <li><a href="http://localhost/Backend/movies/user/dashbord.php?cat=tosee">Films à voir</a></li>
-                <li><a href="http://localhost/Backend/movies/user/dashbord.php?cat=seen">Films vus</a></li>
+                <li><a href="http://localhost/Backend/movies/user/dashboard.php?cat=tosee">Films à voir</a></li>
+                <li><a href="http://localhost/Backend/movies/user/dashboard.php?cat=seen">Films vus</a></li>
             </ul>
         </nav>
         <div class="right">

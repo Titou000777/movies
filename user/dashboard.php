@@ -7,9 +7,9 @@
 	include_once('../inc/functions.php');
 
 	// S'il n'y a pas de session on redirige l'utilisateur :
-	if(empty($_SESSION['user'])){
-		header('Location: login.php');
-	}
+	// if(empty($_SESSION['user'])){
+	// 	header('Location: login.php');
+	// }
 
 ?>
 <?php include('../inc/header.php'); ?>
