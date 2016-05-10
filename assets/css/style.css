@@ -332,6 +332,7 @@ textarea {
   filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=180, Strength=10);
 }
 
+
 /*********************************
 *       $NAV                     *
 *********************************/
@@ -345,6 +346,60 @@ textarea {
     color: #002D56;
     font-weight: bold;
 }
+
+/*********************************
+*       $RECHERCHE               *
+*********************************/
+
+legend {
+  color:  #83D2E5;
+  margin-bottom: 10px;
+}
+
+select#to {
+  margin-bottom: 25px;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+
+#romance, #sciencefiction {
+  margin-left: 200px;
+}
+
+#action, #animation {
+  margin-left: 190px;
+}
+
+ #aventure, #family {
+  margin-left: 203px;
+}
+
+#family {
+  margin-left: 195px;
+}
+
+#sciencefiction {
+  margin-left: 206px;
+}
+
+#horror {
+  margin-left: 215px;
+}
+
+#mistere, #biographie {
+  margin-left: 210px;
+}
+
+#musique {
+  margin-left: 177px;
+}
+
+
+
+
 
 /*********************************
 *     $CONTENT                   *
