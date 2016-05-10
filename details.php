@@ -30,27 +30,63 @@
  		$details = getBy('movies_full', $_GET['id'], 'id', '*');
  	}
 
- 	if (!empty($_POST['see'])) {
-
+ 	if (!empty($_POST['tosee'])) {
  		$id = trim(strip_tags($_GET['id']));
-
  		if (!isset($_COOKIE['tosee'])) {
  			setcookie('tosee', $id, time() + 365*24*3600);
  		} else {
  			setcookie('tosee', $_COOKIE['tosee'].'+'.$id, time() + 365*24*3600);
  		}
-
  		header('Location: http://localhost/backend/movies/user/dashboard.php?cat=tosee');
  	}
 
-$tosee = explode('+', $_COOKIE['tosee']);
-$addtosee = '';
-foreach ($tosee as $i) {
-	$id = trim(strip_tags($_GET['id']));
-	if ($i == $id) {
-		$addtosee = $id;
+	$addtosee = '';
+	$addseen = '';
+	if (isset($_COOKIE['tosee'])) {
+		$tosee = explode('+', $_COOKIE['tosee']);
+		foreach ($tosee as $i) {
+			$id = trim(strip_tags($_GET['id']));
+			if ($i == $id) {
+				$addtosee = $id;
+			}
+		}
 	}
-}
+
+	if (isset($_COOKIE['seen'])) {
+		$seen = explode('+', $_COOKIE['seen']);
+		foreach ($tosee as $i) {
+			$id = trim(strip_tags($_GET['id']));
+			if ($i == $id) {
+				$addseen = $id;
+			}
+		}
+	}
+
+ 	if (!empty($_POST['delete']) && empty($addseen) && !empty($addtosee)) {
+ 		$cookie = '';
+ 		foreach ($tosee as $i) {
+ 			if ($i != $id) {
+ 				$cookie .= $i.'+';
+ 			}
+ 		}
+ 		setcookie('tosee', $cookie, time() + 365*24*3600);
+ 	}
+
+ 	if (!empty($_POST['seen'])) {
+ 		$cookie = '';
+ 		foreach ($tosee as $i) {
+ 			if ($i != $id) {
+ 				$cookie .= $i.'+';
+ 			}
+ 		}
+ 		setcookie('tosee', $cookie, time() + 365*24*3600);
+ 		if (!isset($_COOKIE['seen'])) {
+ 			setcookie('seen', $id, time() + 365*24*3600);
+ 		} else {
+ 			setcookie('seen', $_COOKIE['seen'].'+'.$id, time() + 365*24*3600);
+ 		}
+ 		header('Location: http://localhost/backend/movies/user/dashboard.php?cat=seen');
+ 	}
 
 ?>
 
@@ -81,9 +117,15 @@ foreach ($tosee as $i) {
 
 		<section>
 			<form action="" method="POST">
-			<?php if (empty($addtosee)) {
-				echo '<input type="submit" name="see" value="A voir" class="position" />';
-			} ?>
+			<?php if (empty($addtosee) && empty($addseen)) {
+				echo '<input type="submit" name="tosee" value="A voir" class="position" />';
+				echo '<input type="submit" name="seen" value="Vue" class="position" />';
+			} else if (!empty($addseen)) {
+				echo '<input type="submit" name="seen" value="Note" class="position" />';
+			} else if (empty($addseen) && !empty($addtosee)) {
+				echo '<input type="submit" name="seen" value="Vue" class="position" />';
+				echo '<input type="submit" name="delete" value="Retiré" class="position" />';
+			}?>
 				<!-- <input type="submit" name="rating" value="voter" /> -->
 			</form>
 

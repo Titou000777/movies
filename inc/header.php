@@ -6,14 +6,14 @@
 	<title>Ciné Movie</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300,100' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="http://localhost/Backend/movies/assets/css/style.css" />
-	<script src="http://localhost/Backend/movies/assets/js/jquery.min.js"></script>
-    <script src="http://localhost/Backend/movies/assets/js/app.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://localhost/backend/movies/assets/css/style.css" />
+	<script src="http://localhost/backend/movies/assets/js/jquery.min.js"></script>
+    <script src="http://localhost/backend/movies/assets/js/app.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <a href="http://localhost/Backend/movies/index.php" class="logo left"><img src="http://localhost/Backend/movies/assets/img/logo.png" alt="CinéMovies"><span>CinéMovies</span></a>
+        <a href="http://localhost/backend/movies/index.php" class="logo left"><img src="http://localhost/backend/movies/assets/img/logo.png" alt="CinéMovies"><span>CinéMovies</span></a>
         <form action="index.php" method="GET"class="header-search left">
             <input type="search" name="search" placeholder="Rechercher un film">
             <div class="header-form-drop content-drop hide">
@@ -95,16 +95,16 @@
         </form>
         <nav class="header-nav">
             <ul>
-                <li><a href="http://localhost/Backend/movies/user/dashboard.php?cat=tosee">Films à voir</a></li>
-                <li><a href="http://localhost/Backend/movies/user/dashboard.php?cat=seen">Films vus</a></li>
+                <li><a href="http://localhost/backend/movies/user/dashboard.php?cat=tosee">Films à voir</a></li>
+                <li><a href="http://localhost/backend/movies/user/dashboard.php?cat=seen">Films vus</a></li>
             </ul>
         </nav>
         <div class="right">
             <?php if(!empty($_SESSION['user'])) : ?>
-                <a href="http://localhost/Backend/movies/user/logout.php" class="link-btn-bis">Déconnexion</a>
+                <a href="http://localhost/backend/movies/user/logout.php" class="link-btn-bis">Déconnexion</a>
             <?php else: ?>
-                <a href="http://localhost/Backend/movies/user/login.php" class="link-btn-ter">Connexion</a>
-                <a href="http://localhost/Backend/movies/user/sign.php" class="link-btn-bis">Inscription</a>
+                <a href="http://localhost/backend/movies/user/login.php" class="link-btn-ter">Connexion</a>
+                <a href="http://localhost/backend/movies/user/sign.php" class="link-btn-bis">Inscription</a>
             <?php endif; ?>
         </div>
         <div class="clearfix"></div>
