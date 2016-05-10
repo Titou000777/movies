@@ -35,7 +35,7 @@
 			$genre = $_GET['genre'];
 		}
 
-		$movies = search('movies_full', 'id, slug, title, year', 20, $search, $from, $to, $genre);
+		$movies = search('movies_full', 'id, slug, title', 20, $search, $from, $to, $genre);
 	}
 	else {
 		$movies = getRandomly('movies_full', 'id, slug, title', 20);
