@@ -420,6 +420,14 @@ p{
   background-color: #83D2E5;
 }
 
+.followFooter h5 {
+  padding-bottom: 23px;
+}
+
+.followFooter ul {
+  padding-bottom: 23px;
+}
+
 .footer div {
   width: 33%;
   text-align: center;
