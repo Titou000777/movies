@@ -1,4 +1,7 @@
 <?php
+	// On démare la session :
+    session_start();
+
 	include_once('inc/db.php');
 	include_once('inc/functions.php');
 
@@ -39,7 +42,7 @@
 	}
 
 ?>
-<?php include ('inc/header.php'); ?>
+<?php include('inc/header.php'); ?>
 
 <section class="wrapper">
 	
@@ -60,8 +63,8 @@
 			endforeach;
 		endif; 
 	?>
-			<div class="clearfix"></div>
+	<div class="clearfix"></div>
 	<a href="./index.php" class="btn-block">Plus de films</a>
 </section>
 
-<?php include ('inc/footer.php'); ?>
+<?php include('inc/footer.php'); ?>

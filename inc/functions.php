@@ -156,69 +156,36 @@
 		}
 	}
 
-	
-
 	/**
-	 * Fonction qui affiche la pagination sur la page de recherche :
-	 * @param $page id int
-	 * @param $nbPage id int
-	 * @return string pagination
+	 * Cette fonction permet de vérifier si l'identifiant de connexion existe en BDD :
+	 * @param $verif string => Ce que l'on vérifie
+	 * @return bool
 	 */
-	function paginateSearch($page, $nbPage, $search) {
-		$prev = $page - 1;
-		$next = $page + 1;
-
-		echo '<ul class="pagination">';
-		if($search != NULL) {
-			if ($prev > 0) {
-				echo '<li><a href="./search.php?search='.$search.'&page='.$prev.'">❮ &nbsp;</a></li>';
-			}
-			if($next <= $nbPage) {
-				echo '<li><a href="./search.php?search='.$search.'&page='.$next.'">&nbsp; ❯;</a></li>';
-			}
-		}
-		echo '</ul>';
+	function exist_login($verif) {
+		global $pdo;
+		// Requete de vérification que $verif n'existe pas en BDD :
+		$query = "SELECT * FROM users WHERE username = :verif OR email = :verif";
+		$sql = $pdo->prepare($query);
+		$sql->bindValue(':verif', $verif, PDO::PARAM_STR);
+		$sql->execute();
+		$results = $sql->fetch();
+		return $results;
 	}
 
 	/**
-	 * Fonction qui affiche la pagination numéroté :
-	 * @param $page id int
-	 * @param $nbPage id int
-	 * @return string pagination
+	 * Cette fonction permet de l'utilisateur courent :
+	 * @param $id int 
+	 * @return array
 	 */
-	function pagination($page, $nbPage) {
-		echo '<ul class="pagination">';
-		for($i = 1; $i <= $nbPage; $i++) {
-			echo '<li><a href="./index.php?page='.$i.'">'.$i.'</a></li>';
-		}
-		echo '</ul>';
-	}
-
-	/**
-	 * Fonction qui affiche la pagination complete :
-	 * @param $page id int
-	 * @param $nbPage id int
-	 * @return string pagination
-	 */
-	function paginationAdminComplete($page, $nbPage) {
-		$prev = $page - 1;
-		$next = $page + 1;
-
-		echo '<ul class="pagination">';
-		echo '<li><a href="./dashboard.php?page=1">❮ &nbsp; ❮ &nbsp;</a></li>';
-		if ($prev > 0) {
-			echo '<li><a href="./dashboard.php?page='.$prev.'">❮ &nbsp;</a></li>';
-		}
-
-		for($i = 1; $i <= $nbPage; $i++) {
-			echo '<li><a href="./dashboard.php?page='.$i.'">'.$i.'</a></li>';
-		}
-
-		if($next <= $nbPage) {
-			echo '<li><a href="./dashboard.php?page='.$next.'">&nbsp; ❯;</a></li>';
-		}
-		echo '<li><a href="./dashboard.php?page='.$nbPage.'">&nbsp; ❯; &nbsp; ❯;</a></li>';
-		echo '</ul>';
+	function getUser($id) {
+		global $pdo;
+		// Requete de vérification que $verif n'existe pas en BDD :
+		$query = "SELECT * FROM users WHERE id = :id OR email = :verif";
+		$sql = $pdo->prepare($query);
+		$sql->bindValue(':id', $id, PDO::PARAM_INT);
+		$sql->execute();
+		$results = $sql->fetch();
+		return $results;
 	}
 
 	function getImg($img, $title) {

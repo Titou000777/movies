@@ -1,16 +1,21 @@
-<!-- TO SEE  -->
-<?php include('inc/header.php'); ?>
+<?php
+	// On démare la session :
+    session_start();
 
+    // Inclusion des fichiers utiles :
+	include_once('../inc/db.php');
+	include_once('../inc/functions.php');
 
-<p>Afficher par date</p>
+	// S'il n'y a pas de session on redirige l'utilisateur :
+	// if(empty($_SESSION['user'])){
+	// 	header('Location: login.php');
+	// }
 
+?>
+<?php include('../inc/header.php'); ?>
 
-<section>
-	<img src="posters/10002.jpg" alt="posters" class="" />
-	<input type="submit" name="delete" value="Retirer de la liste">
-	<input type="submit" name="seen" value="Déjà vu">
+<section class="wrapper">
+	<h2>Bonjour <?= $_SESSION['user']['pseudo'] ?> bienvenu dans votre espace personnel</h2>
 </section>
 
-
-
-<?php include('inc/footer.php'); ?>
+<?php include('../inc/footer.php'); ?>
