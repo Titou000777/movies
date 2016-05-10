@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <a href="http://localhost/backend/movies/index.php" class="logo left"><img src="http://localhost/backend/movies/assets/img/logo.png" alt="CinéMovies"><span>CinéMovies</span></a>
-        <form action="index.php" method="GET"class="header-search left">
+        <form action="http://localhost/backend/movies/index.php" method="GET"class="header-search left">
             <input type="search" name="search" placeholder="Rechercher un film">
             <div class="header-form-drop content-drop hide">
                 <legend>Par année :</legend>
