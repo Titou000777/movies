@@ -17,6 +17,7 @@
         <form action="index.php" method="GET"class="header-search left">
             <input type="search" name="search" placeholder="Rechercher un film">
             <div class="header-form-drop content-drop hide">
+                <legend>Par année :</legend>
                 <label for="from">De</label>
                 <select name="from" id="from">
                     <option value="">Selectionnez</option>
@@ -39,51 +40,52 @@
                     <option value="2010">2010</option>
                     <option value="2016">2016</option>
                 </select>
+                 <legend>Par catégorie :</legend>
                 <label for="selectionner">
-                    <input type="checkbox" name="selectionner" id="selectionner"> Tout sélectionner
-                </label>
+                    <input type="checkbox" name="selectionner" id="selectionner"> <span style="color: #F15C22;">Tout sélectionner</span>
+                </label> <br />
                 <label for="fantasy">
                     <input type="checkbox" name="genre[]" value="Fantasy" id="fantasy"> Fantasy
-                </label>
+                </label> 
                 <label for="romance">
                     <input type="checkbox" name="genre[]" value="Romance" id="romance"> Romance
-                </label>
+                </label> 
                 <label for="action">
                     <input type="checkbox" name="genre[]" value="Action" id="action"> Action
-                </label>
+                </label> <br />
                 <label for="thriller">
                     <input type="checkbox" name="genre[]" value="Thriller" id="thriller"> Thriller
-                </label>
+                </label> 
                 <label for="aventure">
                     <input type="checkbox" name="genre[]" value="Aventure" id="aventure"> Aventure
-                </label>
+                </label> 
                 <label for="animation">
                     <input type="checkbox" name="genre[]" value="Animation" id="animation"> Animation
-                </label>
+                </label> <br />
                 <label for="comedie">
                     <input type="checkbox" name="genre[]" value="Comedie" id="comedie"> Comedie
-                </label>
+                </label> 
                 <label for="family">
                     <input type="checkbox" name="genre[]" value="Family" id="family"> Family
-                </label>
+                </label> 
                 <label for="sciencefiction">
                     <input type="checkbox" name="genre[]" value="Science Fiction" id="sciencefiction"> Science Fiction
-                </label>
+                </label> <br />
                 <label for="crime">
                     <input type="checkbox" name="genre[]" value="Crime" id="crime"> Crime
-                </label>
+                </label> 
                 <label for="horror">
                     <input type="checkbox" name="genre[]" value="Horror" id="horror"> Horror
-                </label>
+                </label> 
                 <label for="mistere">
                     <input type="checkbox" name="genre[]" value="Mistere" id="mistere"> Mistere
-                </label>
+                </label> <br />
                 <label for="guerre">
                     <input type="checkbox" name="genre[]" value="Guerre" id="guerre"> Guerre
-                </label>
+                </label> 
                 <label for="biographie">
                     <input type="checkbox" name="genre[]" value="Biographie" id="biographie"> Biographie
-                </label>
+                </label> 
                 <label for="musique">
                     <input type="checkbox" name="genre[]" value="Musique" id="musique"> Musique
                 </label>
