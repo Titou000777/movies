@@ -377,6 +377,43 @@ p{
 
 
 /*********************************
+*     $INDEX                    *
+*********************************/
+
+.card {
+  float: left;
+  border: 1px solid #000;
+  border-radius: 4px;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-bottom: 40px;
+}
+
+.card:hover {
+  background: #F15C22;
+  border: 1px solid #F15C22;
+  border-radius: 4px;
+}
+
+.card-content {
+  width: 200px;
+  height: 400px;
+  margin-left: 80px;
+}
+
+.card-footer {
+ margin-top: 50px;
+ margin: 0;
+ text-align: center;
+}
+
+.image-size {
+  width: 200px;
+  height: 300px;
+}
+
+
+/*********************************
 *     $DETAILS                    *
 *********************************/
 
@@ -388,7 +425,10 @@ p{
 #movie-resume {
   margin-right: 300px;
   margin-left: 40px;
- 
+}
+
+ul#movie-liste li {
+  list-style: none;
 }
 
  ul#movie-partage {
@@ -398,6 +438,7 @@ p{
 }
 
 #movie-partage li {
+
   display: inline; 
   font-size: 3em;
 }
@@ -558,15 +599,27 @@ p{
 
 .link-title:hover{
   text-decoration: underline;
+  color: #fff;
 }
 
 .btn-block {
-    width: 100%;
-    color: #002D56;
-    background-color: #83D2E5;
-    padding: 1em 0;
-    text-align: center;
+  width: 100%;
+  color: #002D56;
+  background-color: #83D2E5;
+  border: 2px solid #83D2E5;
+  border-radius: 3px;
+  padding: 0.5em 0;
+  text-align: center;
 }
+
+.btn-block:hover {
+  background: #F15C22;
+  color: #fff;
+  border: 2px solid #F15C22;  
+}
+
+
+
 /*********************************
 *       $ICONS FA     *
 *********************************/

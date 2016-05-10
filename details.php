@@ -18,6 +18,9 @@
 
 
 <?php 
+	// On démare la session :
+    session_start();
+    
  	include_once('inc/db.php');
  	include('inc/functions.php');
  	
@@ -68,7 +71,7 @@ foreach ($tosee as $i) {
 		<h3>Résumé</h3>
 		<p><?= $detail['plot'] ?></p>
 
-		<ul>
+		<ul id="movie-liste">
 			<li>Réalisateur : <?= $detail['directors'] ?></li>
 			<li>Acteurs : <?= $detail['cast'] ?></li>
 			<li>Scénario : <?= $detail['writers'] ?></li>
@@ -85,11 +88,18 @@ foreach ($tosee as $i) {
 			</form>
 
 			<ul id="movie-partage">
+<<<<<<< HEAD
 				<!-- <p>Partager</p> -->
 				    <li><div class="fb-share-button" data-layout="button" data-mobile-iframe="true"></div></li>
 					<li><a class="twitter-share-button" href="https://twitter.com/share" target="_blank"></a></li>
 					<li><script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: fr_FR</script><script type="IN/Share"></script></li>
 					<li><div class="g-plus" data-action="share" data-annotation="none" data-href="http://localhost/movies/movies/index.php"></div></li>
+=======
+				<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+>>>>>>> refs/remotes/origin/master
 			</ul>
 		</section>
 	</section>
