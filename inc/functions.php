@@ -72,14 +72,14 @@
 		}
 
 		if(!empty($genre))
-		{
-			$where .= ' AND genres = "'.$genre[0].'"';
-			for($i = 1; $i < count($genre); $i++)
-			{
-				$where .= ' OR genres = "'.$genre[$i].'"';
-			}
-		}
-
+        {
+            $where .= ' AND (genres LIKE "%'.$genre[0].'%"';
+            for($i = 1; $i < count($genre); $i++)
+            {
+                $where .= ' OR genres LIKE "%'.$genre[$i].'%"';
+            }
+            $where .= ')';
+        }
 
 		if(!empty($from) && !empty($to))
 		{
@@ -191,9 +191,13 @@
 	function getImg($img, $title) {
 		if(file_exists('./posters/'.$img.'.jpg')) 
 		{
-			 echo '<img src="posters/'.$img.'.jpg" alt="'.$title.'" class="image-size" />';
+			 echo '<img src="http://localhost/backend/movies/posters/'.$img.'.jpg" alt="'.$title.'" class="image-size" />';
+		}
+		else if(file_exists('../posters/'.$img.'.jpg')) 
+		{
+			 echo '<img src="http://localhost/backend/movies/posters/'.$img.'.jpg" alt="'.$title.'" class="image-size" />';
 		}
 		else { 
-			echo'<img src="posters/avatar.jpg" alt="'.$title.'" class="image-size" />';
+			echo'<img src="http://localhost/backend/movies/posters/avatar.jpg" alt="'.$title.'" class="image-size" />';
 		}
 	}
